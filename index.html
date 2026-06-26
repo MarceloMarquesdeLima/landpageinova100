@@ -108,11 +108,11 @@
             border-radius:10px;
         }
 
-        /* --- BOTÃO DO WHATSAPP --- */
+        /* --- BOTÃO DO WHATSAPP (MOVIDO PARA A ESQUERDA) --- */
         .btn-whatsapp-fixed {
             position: fixed;
             bottom: 20px;
-            right: 180px; /* Ajustado para dar espaço ao chat de IA */
+            left: 20px; /* Alterado de 'right' para 'left' */
             background-color: #25d366;
             color: #fff;
             border-radius: 50px;
@@ -139,14 +139,13 @@
             font-size: 24px;
         }
 
-        /* Animação suave para chamar atenção */
         @keyframes pulse-whatsapp {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* --- WIDGET DE ATENDIMENTO IA --- */
+        /* --- WIDGET DE ATENDIMENTO IA (LADO DIREITO) --- */
         .ai-chat-container {
             position: fixed;
             bottom: 20px;
@@ -278,11 +277,9 @@
         }
  
     </style>
- 
-</head>
-<body>
- 
-<nav class="navbar navbar-expand-lg navbar-dark">
+ </head>
+ <body>
+ <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
  
         <a class="navbar-brand" href="#">
@@ -306,9 +303,8 @@
         </div>
  
     </div>
-</nav>
- 
-<section class="hero text-center">
+ </nav>
+ <section class="hero text-center">
     <div class="container">
  
         <h1>
@@ -328,9 +324,8 @@
         </a>
  
     </div>
-</section>
- 
-<section class="py-5" id="produtos">
+ </section>
+ <section class="py-5" id="produtos">
     <div class="container">
  
         <h2 class="text-center section-title">
@@ -375,9 +370,8 @@
         </div>
  
     </div>
-</section>
- 
-<section class="py-5 bg-dark" id="diferenciais">
+ </section>
+ <section class="py-5 bg-dark" id="diferenciais">
  
     <div class="container">
  
@@ -423,10 +417,8 @@
         </div>
  
     </div>
- 
-</section>
- 
-<section class="cta py-5 text-center">
+ </section>
+ <section class="cta py-5 text-center">
  
     <div class="container">
  
@@ -437,10 +429,8 @@
         </p>
  
     </div>
- 
-</section>
- 
-<section class="py-5" id="contato">
+ </section>
+ <section class="py-5" id="contato">
  
     <div class="container">
  
@@ -479,10 +469,8 @@
         </div>
  
     </div>
- 
-</section>
- 
-<footer>
+ </section>
+ <footer>
  
     <div class="container">
  
@@ -518,15 +506,14 @@
         </div>
  
     </div>
- 
-</footer>
+ </footer>
 
-<!-- --- BOTÃO FIXO DO WHATSAPP --- -->
+<!-- --- BOTÃO FIXO DO WHATSAPP (AGORA À ESQUERDA) --- -->
 <a href="https://wa.me/554330395145?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20de%20sementes/fertilizantes." class="btn-whatsapp-fixed" target="_blank" rel="noopener noreferrer">
     <i class="bi bi-whatsapp"></i> Fale Conosco
 </a>
 
-<!-- --- CONTAINER DA IA DE ATENDIMENTO --- -->
+<!-- --- CONTAINER DA IA DE ATENDIMENTO (À DIREITA) --- -->
 <div class="ai-chat-container">
     <button class="ai-chat-btn" onclick="toggleChat()">
         <i class="bi bi-robot"></i> Chat IA
@@ -551,7 +538,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- --- LOGICA DO ATENDIMENTO IA --- -->
+<!-- --- LÓGICA DO ATENDIMENTO IA --- -->
 <script>
     function toggleChat() {
         const chatBox = document.getElementById('aiChatBox');
@@ -559,7 +546,6 @@
             chatBox.style.display = 'none';
         } else {
             chatBox.style.display = 'flex';
-            // Scroll automático para o final quando abre
             const msgs = document.getElementById('chatMessages');
             msgs.scrollTop = msgs.scrollHeight;
         }
@@ -570,11 +556,9 @@
         const text = input.value.trim();
         if(!text) return;
 
-        // Adiciona mensagem do usuário
         appendMessage(text, 'user');
         input.value = '';
 
-        // Resposta simulada da IA baseada em palavras-chave
         setTimeout(() => {
             let response = "Desculpe, não entendi perfeitamente. Você gostaria de falar sobre as nossas sementes de Soja, Milho, Fertilizantes, ou prefere solicitar um orçamento direto no nosso formulário abaixo?";
             const upperText = text.toLowerCase();
@@ -582,7 +566,7 @@
             if(upperText.includes('soja')) {
                 response = "Trabalhamos com cultivares de soja de altíssima qualidade, excelente vigor e potencial produtivo ideal para a nossa região. Deseja fazer uma cotação para a sua área?";
             } else if(upperText.includes('milho')) {
-                response = "Nossos híbridos de milho trazem tecnologia de ponta para garantir estabilidade e máximo rendimento na sua safrinha ou safra de verão!";
+                response = "Nossos híbridos de milho trazem tecnologia de ponta para garantir estabilidade e máximo rendimento na sua safrinha ou sabra de verão!";
             } else if(upperText.includes('fertilizante') || upperText.includes('adubo')) {
                 response = "Temos uma linha completa de fertilizantes com nutrição balanceada para corrigir seu solo e elevar o patamar da sua colheita.";
             } else if(upperText.includes('orçamento') || upperText.includes('preço') || upperText.includes('cotar') || upperText.includes('comprar')) {
